@@ -1,0 +1,47 @@
+//ALGOEXPERTDUDE
+package AOA;
+
+import java.util.Scanner;
+
+public class insertion {
+    static int[] insertionsort(int n, int[] arr) {
+        //-----------logic------------------------
+        for (int j = 1; j < n; j++) {
+            int k = arr[j];
+            int i = j - 1;
+            while (i >= 0 && arr[i] > k) {  //logic that place the selected item correctly
+                arr[i + 1] = arr[i];
+                i = i - 1;
+            }
+            arr[i + 1] = k;
+           //----------------print--------------
+            System.out.println("\n Iteration " + j);
+            for (int l = 0; l < n; l++) {
+                System.out.print("" + arr[l] + "\t");
+            }
+            //--------------------------------------------
+
+        }
+        return arr;
+
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        //--------array Creation-----------------
+        System.out.println("\nEnter Size of array");
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        System.out.println("Enter data");
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        arr = insertionsort(n, arr);
+        //--------------print-------------
+        System.out.println("\nSorted Array");
+        for (int i = 0; i < n; i++) {
+            System.out.println(arr[i]);
+        }
+    }
+
+}
